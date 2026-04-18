@@ -16,6 +16,7 @@ jobs:
             docker build \
               --build-arg VITE_BASE_URL="${{ secrets.VITE_BASE_URL }}" \
               --build-arg VITE_STRAPI_API_TOKEN="${{ secrets.VITE_STRAPI_API_TOKEN }}" \
+              --build-arg COMMIT_SHA_ARG="${{ github.sha }}" \
             -t portfolio-ui .
 
             docker stop portfolio-ui || true
