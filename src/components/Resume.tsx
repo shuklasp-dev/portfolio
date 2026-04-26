@@ -1,6 +1,8 @@
 import React from "react";
 import { getMonthAndYear } from "../Utils/helper";
 import { Resume as ResumeType } from "../Utils/Types";
+import viewIcon from '../assets/icons/view.svg'
+import downloadIcon from '../assets/icons/download.svg'
 
 interface PropType {
   resume: ResumeType,
@@ -19,17 +21,17 @@ const Resume: React.FC<PropType> = ({resume, updatedAt}) => {
       </div>
       <div>
         <a
-          href={resume.file.url}
+          href={resume.fileUrl}
           target="_blank"
         >
-          <img className="icon" src={resume.viewIcon.dark.url} alt="view" title="View Resume" />
+          <img className="icon" src={viewIcon} alt="view" title="View Resume" />
         </a>
         <a
-          href={resume.file.url}
+          href={resume.fileUrl}
           download={`Resume`}
           target="_blank"
         >
-          <img className="icon" src={resume.downloadIcon.dark.url} alt="download" title="Download Resume" />
+          <img className="icon" src={downloadIcon} alt="download" title="Download Resume" />
         </a>
       </div>
     </section>

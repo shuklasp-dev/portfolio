@@ -8,7 +8,7 @@ const Carousel = ({ skills }: { skills: Skill[] }) => {
           {skills.map((skill) => (
             <img
               className="icon slide_item"
-              src={skill.icon.url}
+              src={skill.iconUrl}
               alt={skill.name}
               title={skill.name}
               key={skill.id}
@@ -19,7 +19,7 @@ const Carousel = ({ skills }: { skills: Skill[] }) => {
           {skills.map((skill) => (
             <img
               className="icon slide_item"
-              src={skill.icon.url}
+              src={skill.iconUrl}
               alt={skill.name}
               title={skill.name}
               key={skill.id}

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeProvider";
-import type { ThemedIcon } from "../Utils/Types";
+import { bulb_on } from "../assets/icons";
 
-const Theme = ({themeIcon}:{themeIcon: ThemedIcon}) => {
+const Theme = () => {
   const [theme, setTheme] = useContext(ThemeContext);
   return (
     <section
@@ -12,7 +12,7 @@ const Theme = ({themeIcon}:{themeIcon: ThemedIcon}) => {
     >
       <img
         className="icon"
-        src={theme == "dark" ? themeIcon.dark.url : themeIcon.light.url}
+        src={theme == "dark" ? bulb_on : bulb_on}
         alt="theme"
       />
     </section>

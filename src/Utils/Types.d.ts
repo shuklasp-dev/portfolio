@@ -16,26 +16,25 @@ export interface SiteData {
     seo: any | null;
 }
 
-export interface Personal {
+export interface ProfileData {
     id: ID;
-    fname: string;
-    lname: string;
+    firstName: string;
+    lastName: string;
     bio: string;
-    profileImg: Media;
+    imageUrl: string;
 }
 
 
 export interface Skill {
     id: ID;
     name: string;
-    icon: Media;
+    iconUrl: string;
 };
 
 export interface Resume {
     id: ID;
-    file: Media;
-    downloadIcon: ThemedIcon;
-    viewIcon: ThemedIcon;
+    fileUrl: string;
+    updatedOn: string;
 }
 
 export interface ThemedIcon extends Record<ThemeType, Media> {
@@ -44,47 +43,50 @@ export interface ThemedIcon extends Record<ThemeType, Media> {
 
 export interface Social {
     id: ID;
-    link: string;
-    icon: ThemedIcon;
-    
+    url: string;
+    iconUrl: string;
+    name: string
 }
 
-export interface Experience {
+export interface ExperienceData {
     id: ID;
     companyName: string;
-    designation: string;
-    duration: string;
-    companyIcon: Media;
-    description: string[] | null;
-    
+    role: string;
+    startDate: string;
+    endDate: string;
+    companyLogoUrl: string;    
+}
+
+export interface Address{
+  id: ID;
+  location: string;
+  locationUrl: string;
+  imageUrl: string;
 }
 
 export interface Project {
     id: ID;
     name: string;
-    srcLink: string;
-    liveLink: string;
-    image: Media[];
+    sourceCodeUrl: string;
+    previewUrl: string;
+    imageUrl: string;
 
 }
 
 export type Data = {
         id: ID;
         documentId: string;
-        address: string ;
-        addressLink: string ;
-        addressImg: Media;
-        totalExp: string | null;
         createdAt: string;
         updatedAt: string;
         publishedAt: string;
         siteData: SiteData;
-        personal: Personal
+        profile: ProfileData
         skills: Skill[];
         resume: Resume;
-        themeIcon: ThemedIcon;
         socials: Social[];
-        experiences: Experience[];
+        experiences: ExperienceData[];
+        address: Address;
+        themeIcon: ThemedIcon;
         projects: Project[]
 };
 

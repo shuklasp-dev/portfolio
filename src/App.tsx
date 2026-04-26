@@ -9,18 +9,18 @@ import Socials from "./components/Socials";
 import Map from "./components/Map";
 import Experience from "./components/Experience";
 import Project from "./components/Project";
-import { useUserQuery } from "./services/getData";
+import { usePortfolioQuery } from "./services/getData";
 
 
 function App() {
-  const { data, isLoading, isError } = useUserQuery()
+  const { data, isLoading, isError } = usePortfolioQuery()
   const [theme,] = useContext(ThemeContext);
 
   useEffect(() => {
     if (data) {
       document.title = data.siteData.name;
       const favicon = document.getElementById('favicon') as HTMLLinkElement;
-        favicon.href = data.siteData.favicon.url
+      // favicon.href = data.siteData.favicon.url
     }
   }, [data])
 
@@ -32,13 +32,13 @@ function App() {
         isError || !data ?
           <center className="error">{'Error in fetching data.'}</center> :
           <main className="grid">
-            <Profile personal={data.personal} />
+            <Profile profile={data.profile} />
             <Carousel skills={data.skills} />
             <Resume resume={data.resume} updatedAt = {data.updatedAt} />
-            <Theme themeIcon={data.themeIcon}/>
+            <Theme />
             <Socials socials={data.socials} />
             <Map data={data} />
-            <Experience data={data} />
+            <Experience experiences={data.experiences} />
             {data.projects.map((project) => (
               <Project project={project} key={project.id} />
             ))}

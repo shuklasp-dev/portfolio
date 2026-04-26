@@ -1,23 +1,29 @@
-import { Data } from "../Utils/Types";
+import { ExperienceData } from "../Utils/Types";
 
-const Experience = ({ data }: { data: Data }) => {
-  const experiences = data.experiences;
+interface PropType {
+  experiences: ExperienceData[]
+}
+
+const Experience: React.FC<PropType> = ({experiences}) => {
+  function getTotalExperiece(){
+    return "4"
+  }
   return (
     <section
       id="experience"
       className="card grid_item col-span-3 row-span-3 work"
     >
       <h2>Experience</h2>
-      <p>{`Total: ${data.totalExp}`}</p>
+      <p>{`Total: ${getTotalExperiece()}`}</p>
       {experiences.map((experience) => (
         <div className="card_body" key={experience.id}>
           <div>
-            <h3>{experience.designation}</h3>
-            <p>{experience.duration}</p>
+            <h3>{experience.role}</h3>
+            <p>{experience.startDate}</p>
           </div>
           <a target="_blank">
             <img
-              src={experience.companyIcon.url}
+              src={experience.companyLogoUrl}
               alt={experience.companyName}
               title={experience.companyName}
             />
